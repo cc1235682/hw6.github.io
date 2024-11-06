@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="styles/style.css" rel="stylesheet" />
+  <script src="scripts/treasure.js"></script> <!-- 去掉 defer，确保立即加载 -->
+  <title>寻宝游戏</title>
+</head>
+<body>
+  <h1>寻宝游戏</h1>
+  <button id="start-btn">开始寻宝</button>
+  <div id="status" class="status"></div>
+
+  <script>
+    const statusElement = document.getElementById("status");
+    const startButton = document.getElementById("start-btn");
+
+    async function updateStatus(message) {
+      statusElement.textContent = message;
+      await new Promise(resolve => setTimeout(resolve, 1500));
+    }
+
+    // 点击按钮后启动寻宝
+    startButton.addEventListener("click", () => {
+      findTreasure();
+    });
+  </script>
+</body>
+</html>
